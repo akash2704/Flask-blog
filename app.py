@@ -4,6 +4,7 @@ from auth.routes import auth_bp
 from blog.routes import blog_bp
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 def create_app():
@@ -27,7 +28,8 @@ def create_app():
 
     return app
 
+# <-- Add this top-level app for Gunicorn
+app = create_app()
 
 if __name__ == "__main__":
-    app = create_app()
     app.run(debug=True)
