@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Latest Posts</h1>
+{% for post in posts %}
+    <div class="post">
+        <h2>
+            <a href="{{ url_for('blog.post_detail', post_id=post.id) }}">
+                {{ post.title }}
+            </a>
+        </h2>
+        <p>By {{ post.author.name }} | {{ post.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
+        
+        <!-- Post preview (first 200 characters) -->
+        <p>
+            {{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}
+        </p>
+        
+        <!-- Read More link -->
+        <a href="{{ url_for('blog.post_detail', post_id=post.id) }}" class="read-more">
+            Read More →
+        </a>
+    </div>
+{% else %}
+    <p>No posts yet.</p>
+{% endfor %}
+{% endblock %}
