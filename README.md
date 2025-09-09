@@ -103,6 +103,9 @@ Visit `http://127.0.0.1:5000` in your browser.
 4. Start Command: `gunicorn app:app`
 5. Deploy!
 
+### 🔗 Live Demo
+
+You can access the live blog here: [https://flask-blog-tdc2.onrender.com](https://flask-blog-tdc2.onrender.com)
 ---
 
 ## 📦 Dependencies
