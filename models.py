@@ -1,5 +1,5 @@
 from extensions import db
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask_jwt_extended import create_access_token
 import secrets
 
@@ -22,7 +22,7 @@ class User(db.Model):
     def generate_reset_token(self):
         """Generate a secure reset token"""
         self.reset_token = secrets.token_urlsafe(32)
-        self.reset_token_expiry = datetime.utcnow() + datetime.timedelta(hours=1)
+        self.reset_token_expiry = datetime.utcnow() + timedelta(hours=1)
         db.session.commit()
         return self.reset_token
 
