@@ -12,7 +12,7 @@ def create_app():
     app.secret_key = os.getenv("APP_SECRET_KEY")
 
     # DB Config
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///blog.db"
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     # SMTP Configuration
